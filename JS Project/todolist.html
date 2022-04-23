@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TO-DO List</title>
+</head>
+<body>
+<div class="container">
+  <h1 class="row">TO-DO LIST</h1>
+  <br>
+  <br>
+  <div class="row">
+    <form>
+      <div class="input-group">
+        <input type="text" placeholder="todo-item" id="box" style="width: 30vw;">
+      </div>
+      <br>
+      <div class="form-group">
+        <input type="button" value="add" onclick="add_item()" style="width: 10vw;">
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <ul id="list_item"></ul>
+  </div>
+</div>
+<script>
+  function add_item()
+  {
+  let item = document.getElementById('box');
+  let lst = document.getElementById('list_item');
+  if(item.value!='') 
+  {
+    var make_li = document.createElement('li');
+    make_li.setAttribute('class','todo_item');
+    make_li.appendChild(document.createTextNode(item.value));
+    lst.appendChild(make_li);
+    item.value=""; 
+  
+  }
+
+  else 
+  {
+
+    alert("Please add item");
+  }
+
+  var container = document.querySelector('#list_item');
+ 
+  container.addEventListener('click', event => {
+    event.target.parentNode.removeChild(event.target);
+  });
+  
+}
+</script>  
+</body>
+</html>
